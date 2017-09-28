@@ -32,6 +32,7 @@ class TweetTableViewCell: UITableViewCell
         //print("GGG - update ui")
         
         tweetTextLabel?.text = tweet?.text
+        /*
         tweetUserLabel?.text = tweet?.user.description
         if let profileImageURL = tweet?.user.profileImageURL {
             // FIXME: blocks main thread
@@ -52,6 +53,7 @@ class TweetTableViewCell: UITableViewCell
         } else {
             tweetCreatedLabel?.text = nil
         }
+        */
     }
     
 }

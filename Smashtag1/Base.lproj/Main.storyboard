@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -25,84 +26,22 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="118.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="xAs-SN-nZ4">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="118.5"/>
-                                            <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="C5F-CO-OJf">
-                                                    <rect key="frame" x="0.0" y="0.0" width="65" height="84.5"/>
-                                                    <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Azp-fJ-2us">
-                                                            <rect key="frame" x="0.0" y="0.0" width="65" height="64"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="64" id="D4D-8P-sLg"/>
-                                                                <constraint firstAttribute="height" constant="64" id="x8c-vl-S9P"/>
-                                                            </constraints>
-                                                        </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="created" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AlQ-aS-xee">
-                                                            <rect key="frame" x="0.0" y="64" width="65" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                </stackView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="SJ1-qk-uOm">
-                                                    <rect key="frame" x="75" y="0.0" width="300" height="118.5"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOL-hd-rok">
-                                                            <rect key="frame" x="0.0" y="0.0" width="300" height="20.5"/>
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ngf-TU-8Dl">
-                                                            <rect key="frame" x="0.0" y="20.5" width="300" height="98"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="text" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Gz-95-iZ4">
-                                                                    <rect key="frame" x="20" y="20" width="300" height="59"/>
-                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
-                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="bottom" secondItem="1Gz-95-iZ4" secondAttribute="bottom" id="JNo-3K-T4t"/>
-                                                                <constraint firstItem="1Gz-95-iZ4" firstAttribute="top" secondItem="Ngf-TU-8Dl" secondAttribute="top" id="Qha-AM-dpc"/>
-                                                                <constraint firstAttribute="trailing" secondItem="1Gz-95-iZ4" secondAttribute="trailing" id="cxh-s5-aHh"/>
-                                                                <constraint firstItem="1Gz-95-iZ4" firstAttribute="leading" secondItem="Ngf-TU-8Dl" secondAttribute="leading" id="tJa-RZ-pud"/>
-                                                            </constraints>
-                                                        </view>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="300" id="Y0X-zF-Xcs"/>
-                                                    </constraints>
-                                                </stackView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="SJ1-qk-uOm" secondAttribute="bottom" id="2Lb-uf-xMi"/>
-                                                <constraint firstAttribute="trailing" secondItem="C5F-CO-OJf" secondAttribute="trailing" constant="310" id="A4l-Bu-8OW"/>
-                                                <constraint firstItem="C5F-CO-OJf" firstAttribute="top" secondItem="xAs-SN-nZ4" secondAttribute="top" id="YT4-dT-HUL"/>
-                                                <constraint firstItem="SJ1-qk-uOm" firstAttribute="top" secondItem="xAs-SN-nZ4" secondAttribute="top" id="fBF-Nh-F5J"/>
-                                                <constraint firstItem="C5F-CO-OJf" firstAttribute="leading" secondItem="xAs-SN-nZ4" secondAttribute="leading" id="pZo-bV-75g"/>
-                                                <constraint firstItem="SJ1-qk-uOm" firstAttribute="leading" secondItem="xAs-SN-nZ4" secondAttribute="leading" constant="75" id="sXM-QD-KaE"/>
-                                                <constraint firstAttribute="bottom" secondItem="C5F-CO-OJf" secondAttribute="bottom" constant="34" id="uEQ-cv-Xhg"/>
-                                                <constraint firstAttribute="trailing" secondItem="SJ1-qk-uOm" secondAttribute="trailing" id="uey-i9-aUl"/>
-                                            </constraints>
-                                        </stackView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Gz-95-iZ4">
+                                            <rect key="frame" x="16" y="8" width="343" height="102.5"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="xAs-SN-nZ4" firstAttribute="leading" secondItem="dhe-pb-ini" secondAttribute="leading" id="2ta-8k-FV1"/>
-                                        <constraint firstAttribute="bottom" secondItem="xAs-SN-nZ4" secondAttribute="bottom" id="Qdc-u8-BIC"/>
-                                        <constraint firstItem="xAs-SN-nZ4" firstAttribute="top" secondItem="dhe-pb-ini" secondAttribute="top" id="UJJ-TP-QyY"/>
-                                        <constraint firstAttribute="trailing" secondItem="xAs-SN-nZ4" secondAttribute="trailing" id="zRI-Na-Gzd"/>
+                                        <constraint firstItem="1Gz-95-iZ4" firstAttribute="top" secondItem="dhe-pb-ini" secondAttribute="topMargin" id="JJa-xk-1BD"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="1Gz-95-iZ4" secondAttribute="trailing" constant="8" id="RH9-md-4LA"/>
+                                        <constraint firstItem="1Gz-95-iZ4" firstAttribute="leading" secondItem="dhe-pb-ini" secondAttribute="leadingMargin" constant="8" id="m1f-rf-61C"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="1Gz-95-iZ4" secondAttribute="bottom" id="tbE-dl-dva"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="tweetCreatedLabel" destination="AlQ-aS-xee" id="9fy-0y-SuB"/>
-                                    <outlet property="tweetProfileImageView" destination="Azp-fJ-2us" id="XhQ-2x-rcZ"/>
                                     <outlet property="tweetTextLabel" destination="1Gz-95-iZ4" id="nTN-i9-YuM"/>
-                                    <outlet property="tweetUserLabel" destination="SOL-hd-rok" id="e5R-TK-fDq"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

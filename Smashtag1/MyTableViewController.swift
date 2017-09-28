@@ -100,11 +100,14 @@ class MyTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // we use the row height in the storyboard as an "estimate"
-        tableView.estimatedRowHeight = tableView.rowHeight
-        // but use whatever autolayout says the height should be as the actual row height
         tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 140
         
+        
+//        // but use whatever autolayout says the height should be as the actual row height
+//        self.tableView.rowHeight = UITableViewAutomaticDimension
+//        // we use the row height in the storyboard as an "estimate"
+//        self.tableView.estimatedRowHeight = tableView.rowHeight
         
         
         // the row height could alternatively be set
@@ -133,9 +136,9 @@ class MyTableViewController: UITableViewController {
 //    }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as! TweetTableViewCell
 //        cell.textLabel?.text = list[indexPath.row]
-
+        
         // Configure the cell...
         let tweet: Tweet = tweets[indexPath.section][indexPath.row]
 //        cell.textLabel?.text = tweet.text
@@ -144,7 +147,7 @@ class MyTableViewController: UITableViewController {
         if let tweetCell = cell as? TweetTableViewCell {
             tweetCell.tweet = tweet
         }
-        return cell
+        return (cell)
         
     }
  
