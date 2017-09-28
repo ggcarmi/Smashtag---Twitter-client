@@ -99,13 +99,18 @@ class MyTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchText = "#stanford"  //
-        //self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "myCell")
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        // we use the row height in the storyboard as an "estimate"
+        tableView.estimatedRowHeight = tableView.rowHeight
+        // but use whatever autolayout says the height should be as the actual row height
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
+        
+        
+        // the row height could alternatively be set
+        // using the UITableViewDelegate method heightForRowAt
+        searchText = "#stanford"  //
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -133,10 +138,12 @@ class MyTableViewController: UITableViewController {
 
         // Configure the cell...
         let tweet: Tweet = tweets[indexPath.section][indexPath.row]
-        cell.textLabel?.text = tweet.text
-        cell.detailTextLabel?.text = tweet.user.name
-        print("GGG \(tweet.text) ")
-
+//        cell.textLabel?.text = tweet.text
+//        cell.detailTextLabel?.text = tweet.user.name
+//        print("GGG \(tweet.text) ")
+        if let tweetCell = cell as? TweetTableViewCell {
+            tweetCell.tweet = tweet
+        }
         return cell
         
     }
