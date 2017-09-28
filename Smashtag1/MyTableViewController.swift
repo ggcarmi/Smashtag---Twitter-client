@@ -14,7 +14,7 @@ class MyTableViewController: UITableViewController {
 //    let list = ["milk","honey","fish","tomato","bread"]
     private var tweets = [Array<Twitter.Tweet>]() {
         didSet{
-            print(tweets)
+            //print(tweets)
         }
     }
 
@@ -47,36 +47,36 @@ class MyTableViewController: UITableViewController {
     // and then let the table view know that we added a section
     // (it will then call our UITableViewDataSource to get what it needs)
     private func searchForTweets() {
-//        // "lastTwitterRequest?.newer ??" was added after lecture for REFRESHING
-//        print("GGG - searchForTweets")
-//        if let request = lastTwitterRequest?.newer ?? twitterRequest() {
-//            lastTwitterRequest = request
-//            request.fetchTweets { [weak self] newTweets in      // this is off the main queue
-//                DispatchQueue.main.async {                      // so dispatch back to main queue
-//                    if request == self?.lastTwitterRequest {
-//                        self?.tweets.insert(newTweets, at:0)
-//                        self?.tableView.insertSections([0], with: .fade)
-//                    }
-//                    self?.refreshControl?.endRefreshing() // REFRESHING
-//                }
-//            }
-//        }else {
-//            self.refreshControl?.endRefreshing() // REFRESHING
-//        }
-        
-        
         // "lastTwitterRequest?.newer ??" was added after lecture for REFRESHING
         print("GGG - searchForTweets")
-        if let request = twitterRequest() {
+        if let request = lastTwitterRequest?.newer ?? twitterRequest() {
             lastTwitterRequest = request
             request.fetchTweets { [weak self] newTweets in      // this is off the main queue
-                                     // so dispatch back to main queue
+                DispatchQueue.main.async {                      // so dispatch back to main queue
                     if request == self?.lastTwitterRequest {
                         self?.tweets.insert(newTweets, at:0)
+                        self?.tableView.insertSections([0], with: .fade)
                     }
+                    self?.refreshControl?.endRefreshing() // REFRESHING
                 }
-            
+            }
+        }else {
+            self.refreshControl?.endRefreshing() // REFRESHING
         }
+        
+        
+//        // "lastTwitterRequest?.newer ??" was added after lecture for REFRESHING
+//        print("GGG - searchForTweets")
+//        if let request = twitterRequest() {
+//            lastTwitterRequest = request
+//            request.fetchTweets { [weak self] newTweets in      // this is off the main queue
+//                                     // so dispatch back to main queue
+//                    if request == self?.lastTwitterRequest {
+//                        self?.tweets.insert(newTweets, at:0)
+//                    }
+//                }
+//
+//        }
     }
     
     
@@ -99,7 +99,7 @@ class MyTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchText = "#stanford"
+        searchText = "#stanford"  //
         //self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "myCell")
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -114,12 +114,13 @@ class MyTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return tweets.count
+    }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
 //        return list.count
-//        return tweets.count
-        return 0
+        return tweets[section].count
     }
 
 //    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -131,6 +132,10 @@ class MyTableViewController: UITableViewController {
 //        cell.textLabel?.text = list[indexPath.row]
 
         // Configure the cell...
+        let tweet: Tweet = tweets[indexPath.section][indexPath.row]
+        cell.textLabel?.text = tweet.text
+        cell.detailTextLabel?.text = tweet.user.name
+        print("GGG \(tweet.text) ")
 
         return cell
         
