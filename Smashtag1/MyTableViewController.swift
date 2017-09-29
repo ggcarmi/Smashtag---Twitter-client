@@ -100,9 +100,9 @@ class MyTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 140
-        
+        tableView.rowHeight = UITableViewAutomaticDimension
+
         
 //        // but use whatever autolayout says the height should be as the actual row height
 //        self.tableView.rowHeight = UITableViewAutomaticDimension
@@ -115,6 +115,13 @@ class MyTableViewController: UITableViewController {
         searchText = "#stanford"  //
 
     }
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        tableView.setNeedsLayout()
+//        tableView.layoutIfNeeded()
+//        tableView.reloadData()
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -136,7 +143,7 @@ class MyTableViewController: UITableViewController {
 //    }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as! TweetTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
 //        cell.textLabel?.text = list[indexPath.row]
         
         // Configure the cell...

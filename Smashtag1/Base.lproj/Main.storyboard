@@ -26,22 +26,50 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="118.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Gz-95-iZ4">
-                                            <rect key="frame" x="16" y="8" width="343" height="102.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E9K-El-mib">
+                                            <rect key="frame" x="87" y="8" width="29" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="created" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ocb-gd-kdZ">
+                                            <rect key="frame" x="14" y="74" width="59" height="44.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GyZ-7i-7eb">
+                                            <rect key="frame" x="8" y="0.0" width="71" height="66"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="71" id="BSy-Tk-Bhs"/>
+                                                <constraint firstAttribute="height" constant="66" id="k0K-rc-7Vv"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Gz-95-iZ4">
+                                            <rect key="frame" x="92" y="37" width="29" height="20.5"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="1Gz-95-iZ4" firstAttribute="top" secondItem="dhe-pb-ini" secondAttribute="topMargin" id="JJa-xk-1BD"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="1Gz-95-iZ4" secondAttribute="trailing" constant="8" id="RH9-md-4LA"/>
-                                        <constraint firstItem="1Gz-95-iZ4" firstAttribute="leading" secondItem="dhe-pb-ini" secondAttribute="leadingMargin" constant="8" id="m1f-rf-61C"/>
+                                        <constraint firstItem="1Gz-95-iZ4" firstAttribute="leading" secondItem="GyZ-7i-7eb" secondAttribute="trailing" constant="8" id="UT8-Qd-kc4"/>
+                                        <constraint firstItem="1Gz-95-iZ4" firstAttribute="top" secondItem="E9K-El-mib" secondAttribute="bottom" constant="8" id="Xep-Dm-a7i"/>
+                                        <constraint firstAttribute="bottom" secondItem="Ocb-gd-kdZ" secondAttribute="bottom" id="eT5-S9-tkt"/>
+                                        <constraint firstItem="E9K-El-mib" firstAttribute="leading" secondItem="GyZ-7i-7eb" secondAttribute="trailing" constant="8" id="iOV-gW-sey"/>
+                                        <constraint firstItem="GyZ-7i-7eb" firstAttribute="leading" secondItem="dhe-pb-ini" secondAttribute="leading" constant="8" id="nYD-Zf-cBQ"/>
+                                        <constraint firstItem="E9K-El-mib" firstAttribute="top" secondItem="dhe-pb-ini" secondAttribute="top" id="oCm-4b-QBB"/>
+                                        <constraint firstItem="Ocb-gd-kdZ" firstAttribute="top" secondItem="GyZ-7i-7eb" secondAttribute="bottom" constant="8" id="oi2-FW-naQ"/>
+                                        <constraint firstItem="GyZ-7i-7eb" firstAttribute="top" secondItem="dhe-pb-ini" secondAttribute="top" id="p7R-RF-GJL"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="1Gz-95-iZ4" secondAttribute="bottom" id="tbE-dl-dva"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="tweetCreatedLabel" destination="Ocb-gd-kdZ" id="zgw-Th-53n"/>
+                                    <outlet property="tweetProfileImageView" destination="GyZ-7i-7eb" id="HEG-xc-3g6"/>
                                     <outlet property="tweetTextLabel" destination="1Gz-95-iZ4" id="nTN-i9-YuM"/>
+                                    <outlet property="tweetUserLabel" destination="E9K-El-mib" id="v79-3H-Kwv"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

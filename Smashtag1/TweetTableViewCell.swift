@@ -15,11 +15,10 @@ class TweetTableViewCell: UITableViewCell
     
     // outlets to the UI components in our Custom UITableViewCell
     
-    @IBOutlet weak var tweetCreatedLabel: UILabel!
-    @IBOutlet weak var tweetProfileImageView: UIImageView!
     @IBOutlet weak var tweetTextLabel: UILabel!
     @IBOutlet weak var tweetUserLabel: UILabel!
-    
+    @IBOutlet weak var tweetCreatedLabel: UILabel!
+    @IBOutlet weak var tweetProfileImageView: UIImageView!
     // public API of this UITableViewCell subclass
     // each row in the table has its own instance of this class
     // and each instance will have its own tweet to show
@@ -31,8 +30,10 @@ class TweetTableViewCell: UITableViewCell
     private func updateUI() {
         //print("GGG - update ui")
         
+//        tweetTextLabel?.text = ((tweet?.text)! + "  " + (tweet?.text)!)
         tweetTextLabel?.text = tweet?.text
-        /*
+
+        
         tweetUserLabel?.text = tweet?.user.description
         if let profileImageURL = tweet?.user.profileImageURL {
             // FIXME: blocks main thread
@@ -53,7 +54,7 @@ class TweetTableViewCell: UITableViewCell
         } else {
             tweetCreatedLabel?.text = nil
         }
-        */
+ 
     }
     
 }
