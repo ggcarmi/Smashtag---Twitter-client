@@ -9,7 +9,7 @@
 import UIKit
 import Twitter
 
-class MyTableViewController: UITableViewController {
+class MyTableViewController: UITableViewController, UITextFieldDelegate {
 
 //    let list = ["milk","honey","fish","tomato","bread"]
     private var tweets = [Array<Twitter.Tweet>]() {
@@ -18,15 +18,22 @@ class MyTableViewController: UITableViewController {
         }
     }
 
+    @IBOutlet weak var searchTextField: UITextField! {
+        didSet{
+            searchTextField.delegate = self
+        }
+    }
+    
+    
     // public part of our Model
     // when this is set
     // we'll reset our tweets Array
     // to reflect the result of fetching Tweets that match
     var searchText: String? {
         didSet {
-//            searchTextField?.text = searchText
-//            searchTextField?.resignFirstResponder()
-//            lastTwitterRequest = nil
+            searchTextField?.text = searchText
+            searchTextField?.resignFirstResponder() // when someone press search, hide the keyboard
+            lastTwitterRequest = nil
             tweets.removeAll()
             tableView.reloadData()
             searchForTweets()
@@ -39,6 +46,15 @@ class MyTableViewController: UITableViewController {
     // a) we ignore tweets that come back from other than our last request
     // b) when we want to refresh, we only get tweets newer than our last request
     private var lastTwitterRequest: Twitter.Request?
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == searchTextField {
+            searchText = searchTextField.text
+        }
+        return true
+    }
+    
     
     // takes the searchText part of our Model
     // and fires off a fetch for matching Tweets
@@ -100,7 +116,7 @@ class MyTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.estimatedRowHeight = 140
+        tableView.estimatedRowHeight = 150
         tableView.rowHeight = UITableViewAutomaticDimension
 
         
@@ -112,7 +128,7 @@ class MyTableViewController: UITableViewController {
         
         // the row height could alternatively be set
         // using the UITableViewDelegate method heightForRowAt
-        searchText = "#stanford"  //
+//        searchText = "#stanford"  //
 
     }
     
