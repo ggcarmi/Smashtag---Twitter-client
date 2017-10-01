@@ -21,6 +21,7 @@ class TweetTableViewCell: UITableViewCell
     @IBOutlet weak var tweetUserLabel: UILabel!
     @IBOutlet weak var tweetCreatedLabel: UILabel!
     @IBOutlet weak var tweetProfileImageView: UIImageView!
+    
     // public API of this UITableViewCell subclass
     // each row in the table has its own instance of this class
     // and each instance will have its own tweet to show
@@ -30,13 +31,19 @@ class TweetTableViewCell: UITableViewCell
     // whenever our public API tweet is set
     // we just update our outlets using this method
     private func updateUI() {
-        //print("GGG - update ui")
         
-//        tweetTextLabel?.text = ((tweet?.text)! + "  " + (tweet?.text)!)
-        tweetTextLabel?.text = tweet?.text
+        let tweetTextToHighlight = NSMutableAttributedString(string: tweet?.text ?? "" , attributes: [:])
+        
+        tweetTextToHighlight.addAttributes(name: NSForegroundColorAttributeName, value: UIColor.blue, wordsToGetTheirRanges: tweet!.hashtags)
+        tweetTextToHighlight.addAttributes(name: NSForegroundColorAttributeName, value: UIColor.red, wordsToGetTheirRanges: tweet!.urls)
+        tweetTextToHighlight.addAttributes(name: NSForegroundColorAttributeName, value: UIColor.green, wordsToGetTheirRanges: tweet!.userMentions)
 
+        tweetTextLabel?.attributedText = tweetTextToHighlight // tweet body
+//        tweetTextLabel?.text = tweet?.text // tweet body
+
+        tweetUserLabel?.text = tweet?.user.description // tweet title-user
         
-        tweetUserLabel?.text = tweet?.user.description
+        // image
         if let profileImageURL = tweet?.user.profileImageURL {
             // FIXME: blocks main thread
             if let imageData = try? Data(contentsOf: profileImageURL) {
@@ -45,6 +52,8 @@ class TweetTableViewCell: UITableViewCell
         } else {
             tweetProfileImageView?.image = nil
         }
+        
+        // date created
         if let created = tweet?.created {
             let formatter = DateFormatter()
             if Date().timeIntervalSince(created) > 24*60*60 {
@@ -59,4 +68,14 @@ class TweetTableViewCell: UITableViewCell
  
     }
     
+}
+
+// extention to highlight in color a string (by adding attribute ) - that is one  of the words that the array "words" contain
+private extension NSMutableAttributedString {
+    
+    func addAttributes(name: String, value: Any,  wordsToGetTheirRanges words: [Mention]) {
+        for word in words {
+            self.addAttribute(name, value: value, range: word.nsrange)
+        }
+    }
 }

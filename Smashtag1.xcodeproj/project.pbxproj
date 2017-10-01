@@ -17,7 +17,7 @@
 		46D7E0481F7CF04B002AD09C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46D7E0461F7CF04B002AD09C /* LaunchScreen.storyboard */; };
 		46D7E0531F7CF04B002AD09C /* Smashtag1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D7E0521F7CF04B002AD09C /* Smashtag1Tests.swift */; };
 		46D7E05E1F7CF04B002AD09C /* Smashtag1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D7E05D1F7CF04B002AD09C /* Smashtag1UITests.swift */; };
-		46D7E06C1F7CF1A5002AD09C /* MyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D7E06B1F7CF1A5002AD09C /* MyTableViewController.swift */; };
+		46D7E06C1F7CF1A5002AD09C /* TweetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D7E06B1F7CF1A5002AD09C /* TweetTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,7 +67,7 @@
 		46D7E0591F7CF04B002AD09C /* Smashtag1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Smashtag1UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		46D7E05D1F7CF04B002AD09C /* Smashtag1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Smashtag1UITests.swift; sourceTree = "<group>"; };
 		46D7E05F1F7CF04B002AD09C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		46D7E06B1F7CF1A5002AD09C /* MyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewController.swift; sourceTree = "<group>"; };
+		46D7E06B1F7CF1A5002AD09C /* TweetTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,7 +125,7 @@
 				46D7E0441F7CF04B002AD09C /* Assets.xcassets */,
 				46D7E0491F7CF04B002AD09C /* Info.plist */,
 				46D7E0411F7CF04B002AD09C /* Smashtag1.xcdatamodeld */,
-				46D7E06B1F7CF1A5002AD09C /* MyTableViewController.swift */,
+				46D7E06B1F7CF1A5002AD09C /* TweetTableViewController.swift */,
 				4685222A1F7D49AA007F247C /* TweetTableViewCell.swift */,
 				46D7E0461F7CF04B002AD09C /* LaunchScreen.storyboard */,
 			);
@@ -287,7 +287,7 @@
 			files = (
 				46D7E03B1F7CF04B002AD09C /* AppDelegate.swift in Sources */,
 				46D7E0431F7CF04B002AD09C /* Smashtag1.xcdatamodeld in Sources */,
-				46D7E06C1F7CF1A5002AD09C /* MyTableViewController.swift in Sources */,
+				46D7E06C1F7CF1A5002AD09C /* TweetTableViewController.swift in Sources */,
 				4685222B1F7D49AA007F247C /* TweetTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
