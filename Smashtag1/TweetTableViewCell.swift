@@ -34,10 +34,11 @@ class TweetTableViewCell: UITableViewCell
         
         let tweetTextToHighlight = NSMutableAttributedString(string: tweet?.text ?? "" , attributes: [:])
         
-        tweetTextToHighlight.addAttributes(name: NSForegroundColorAttributeName, value: UIColor.blue, wordsToGetTheirRanges: tweet!.hashtags)
-        tweetTextToHighlight.addAttributes(name: NSForegroundColorAttributeName, value: UIColor.red, wordsToGetTheirRanges: tweet!.urls)
-        tweetTextToHighlight.addAttributes(name: NSForegroundColorAttributeName, value: UIColor.green, wordsToGetTheirRanges: tweet!.userMentions)
-
+        if let tweet = tweet {
+            tweetTextToHighlight.addAttributes(name: NSForegroundColorAttributeName, value: UIColor.blue, wordsToGetTheirRanges: tweet.hashtags)
+            tweetTextToHighlight.addAttributes(name: NSForegroundColorAttributeName, value: UIColor.red, wordsToGetTheirRanges: tweet.urls)
+            tweetTextToHighlight.addAttributes(name: NSForegroundColorAttributeName, value: UIColor.green, wordsToGetTheirRanges: tweet.userMentions)
+        }
         tweetTextLabel?.attributedText = tweetTextToHighlight // tweet body
 //        tweetTextLabel?.text = tweet?.text // tweet body
 
