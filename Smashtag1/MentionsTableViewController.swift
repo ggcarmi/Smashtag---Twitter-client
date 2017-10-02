@@ -78,7 +78,7 @@ class MentionsTableViewController: UITableViewController {
         return sections[section].mentionsArray.count
     }
 
-    
+    // build the cells - 2 cases - image or mention
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let mention = sections[indexPath.section].mentionsArray[indexPath.row]
@@ -102,6 +102,7 @@ class MentionsTableViewController: UITableViewController {
         
     }
     
+    // detemine which hight the cell should be accordinf the case: image/mention
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         let mention = sections[indexPath.section].mentionsArray[indexPath.row]
@@ -117,6 +118,7 @@ class MentionsTableViewController: UITableViewController {
         
     }
 
+    // title for section
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sections[section].mentionsType
     }
@@ -159,6 +161,7 @@ class MentionsTableViewController: UITableViewController {
     
     // MARK: - Navigation
 
+    // task 5
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
@@ -179,6 +182,35 @@ class MentionsTableViewController: UITableViewController {
 //            
 //        }
         
+    }
+    
+    // task 6
+    // we will use this func to handle the case the user click on Url
+    // if its url - ofen safary, else perporm segue (prepare)
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        
+        if identifier == Identifiers.showMentionIdentifier {
+            
+            if let senderCell = sender as? UITableViewCell,
+            let indexPath = tableView.indexPath(for: senderCell),
+            sections[indexPath.section].mentionsType == "Url's" {
+                
+                guard let url = URL(string: senderCell.textLabel?.text ?? "") else { return false}
+                
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                } else {
+                    UIApplication.shared.openURL(url)
+                }
+                
+                return false
+            }else{
+                return true
+            }
+        }else{
+            // image case
+            return true
+        }
     }
  
 
