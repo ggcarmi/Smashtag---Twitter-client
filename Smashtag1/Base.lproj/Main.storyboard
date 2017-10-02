@@ -121,6 +121,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Bbj-AY-H3w" kind="showDetail" identifier="Show Mention" id="Hwn-4I-AFp"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Image Identifier" rowHeight="103" id="QJY-iv-E6y" customClass="ImageTableViewCell" customModule="Smashtag1" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="375" height="103"/>

@@ -40,6 +40,8 @@ class MentionsTableViewController: UITableViewController {
     struct Identifiers {
         static let imageIdentifier = "Image Identifier"
         static let mentionIdentifier = "Mention Identifier"
+        static let showMentionIdentifier = "Show Mention"
+        static let showImageIdentifier = "Show Image"
     }
     
     struct SingleSectionOfElements{
@@ -154,15 +156,31 @@ class MentionsTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        guard let identifier = segue.identifier else {return}
+        
+        if identifier == Identifiers.showMentionIdentifier {
+            if let tweetTableViewController = segue.destination.contents as? TweetTableViewController,
+            let senderCell = sender as? UITableViewCell,
+            let newMentionKeyword = senderCell.textLabel?.text {
+                tweetTableViewController.searchText = newMentionKeyword
+            }
+                
+        }
+        
+//        else if identifier == Identifiers.showImageIdentifier {
+//            
+//        }
+        
     }
-    */
+ 
 
     
 

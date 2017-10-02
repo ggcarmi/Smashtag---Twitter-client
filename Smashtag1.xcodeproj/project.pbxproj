@@ -100,6 +100,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		46B670771F821C0F0038C881 /* support files */ = {
+			isa = PBXGroup;
+			children = (
+				46D7E03A1F7CF04B002AD09C /* AppDelegate.swift */,
+				46D7E0441F7CF04B002AD09C /* Assets.xcassets */,
+				46D7E0411F7CF04B002AD09C /* Smashtag1.xcdatamodeld */,
+				46D7E0461F7CF04B002AD09C /* LaunchScreen.storyboard */,
+			);
+			path = "support files";
+			sourceTree = "<group>";
+		};
 		46D7E02E1F7CF04B002AD09C = {
 			isa = PBXGroup;
 			children = (
@@ -124,14 +135,11 @@
 		46D7E0391F7CF04B002AD09C /* Smashtag1 */ = {
 			isa = PBXGroup;
 			children = (
-				46D7E03A1F7CF04B002AD09C /* AppDelegate.swift */,
+				46B670771F821C0F0038C881 /* support files */,
 				46D7E03E1F7CF04B002AD09C /* Main.storyboard */,
-				46D7E0441F7CF04B002AD09C /* Assets.xcassets */,
 				46D7E0491F7CF04B002AD09C /* Info.plist */,
-				46D7E0411F7CF04B002AD09C /* Smashtag1.xcdatamodeld */,
 				46D7E06B1F7CF1A5002AD09C /* TweetTableViewController.swift */,
 				4685222A1F7D49AA007F247C /* TweetTableViewCell.swift */,
-				46D7E0461F7CF04B002AD09C /* LaunchScreen.storyboard */,
 				4685222C1F80BB3A007F247C /* MentionsTableViewController.swift */,
 				4685222E1F81363B007F247C /* ImageTableViewCell.swift */,
 			);

@@ -103,7 +103,7 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
         // using the UITableViewDelegate method heightForRowAt
 //        searchText = "#stanford"  //
 //        searchText = "#trump"  //
-        searchText = "#images"  //
+//        searchText = "#images"  //
 
 
 
