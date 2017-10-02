@@ -13,7 +13,7 @@ class ImageTableViewCell: UITableViewCell {
 
     @IBOutlet weak var imageViewOutlet: UIImageView!
     
-    var mediaItem: MediaItem? { didSet{ updateUI() } }
+    var mediaItem: MediaItem?  { didSet{ updateUI() } }
     
     func updateUI(){
         // image
