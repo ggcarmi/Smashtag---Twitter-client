@@ -14,7 +14,7 @@ class RecentSearchesTableViewController: UITableViewController {
     var recentSearches = UserDefaults.standard.array(forKey: Utils.userDefaultRecentSearchesKey) as? [String] ?? [String]()
     
     private struct Identifiers {
-        static let showTweetIdentifier = "Show Tweet"
+        static let showMentionIdentifier = "Show Mention"
     }
     
     override func viewDidLoad() {
@@ -102,7 +102,7 @@ class RecentSearchesTableViewController: UITableViewController {
         guard let identifier = segue.identifier else {return}
         
         if let tweetTableViewController = segue.destination.contents as? TweetTableViewController,
-            identifier == Identifiers.showTweetIdentifier,
+            identifier == Identifiers.showMentionIdentifier,
             let senderCell = sender as? UITableViewCell{
             
             if let newMentionWord = senderCell.textLabel?.text {
