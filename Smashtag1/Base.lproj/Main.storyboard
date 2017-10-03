@@ -247,7 +247,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="7vT-09-JDg" kind="show" identifier="Show Tweet" id="5Sx-Zw-Gh7"/>
+                                    <segue destination="Bbj-AY-H3w" kind="show" identifier="Show Tweet" id="JXk-oE-pL3"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -279,7 +279,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TDA-kp-a3a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-492" y="44"/>
+            <point key="canvasLocation" x="-489" y="23"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8j4-Bq-lZC">
@@ -302,7 +302,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Hwn-4I-AFp"/>
-        <segue reference="5Sx-Zw-Gh7"/>
+        <segue reference="JXk-oE-pL3"/>
     </inferredMetricsTieBreakers>
 </document>

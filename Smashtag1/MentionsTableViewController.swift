@@ -224,16 +224,41 @@ class MentionsTableViewController: UITableViewController {
             sections.append(SingleSectionOfElements(mentionsType: "Url's", mentionsArray: urls ))
         }
         
+//        if tweet.userMentions.count > 0 {
+//            var userMentions = [MentionElement]()
+//
+//            for userMention in tweet.userMentions {
+//                userMentions.append(MentionElement.UserMention(userMention.keyword))
+//            }
+//
+//            var userItselfMention = "@"
+//            userItselfMention += tweet.user.screenName
+//            userMentions.append(MentionElement.UserMention(userItselfMention))
+//
+//            sections.append(SingleSectionOfElements(mentionsType: "User Mentions", mentionsArray: userMentions ))
+//        }else{
+//            // if the section of user mention empty - we still want to add the user itself as user mention
+//            var userItselfMention = "@"
+//            userItselfMention += tweet.user.screenName
+//            userMentions.append(MentionElement.UserMention(userItselfMention))
+//
+//            sections.append(SingleSectionOfElements(mentionsType: "User Mentions", mentionsArray: userMentions ))
+//        }
+        
+        var userMentions = [MentionElement]()
+        
+        var userItselfMention = "@"
+        userItselfMention += tweet.user.screenName
+        userMentions.append(MentionElement.UserMention(userItselfMention))
+        
         if tweet.userMentions.count > 0 {
-            var userMentions = [MentionElement]()
-            
             for userMention in tweet.userMentions {
                 userMentions.append(MentionElement.UserMention(userMention.keyword))
             }
-            
-            sections.append(SingleSectionOfElements(mentionsType: "User Mentions", mentionsArray: userMentions ))
         }
         
+        sections.append(SingleSectionOfElements(mentionsType: "User Mentions", mentionsArray: userMentions ))
+
         
         return sections
         
