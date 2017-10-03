@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2cN-Nt-Z49">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="r3z-Q0-eG6">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -170,10 +170,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fRP-vb-DLf">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Zfl-kd-HB4">
-                                        <rect key="frame" x="177" y="267" width="20" height="20"/>
+                                        <rect key="frame" x="177" y="313.5" width="20" height="20"/>
                                     </activityIndicatorView>
                                 </subviews>
                                 <constraints>
@@ -262,6 +262,36 @@
             </objects>
             <point key="canvasLocation" x="326" y="811"/>
         </scene>
+        <!--Web View View Controller-->
+        <scene sceneID="oJ2-cv-Hel">
+            <objects>
+                <viewController id="r3z-Q0-eG6" customClass="WebViewViewController" customModule="Smashtag1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6JA-IC-Zir">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7O9-9U-XnC">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7O9-9U-XnC" firstAttribute="bottom" secondItem="umX-OW-GmA" secondAttribute="bottom" id="FCO-3E-ghN"/>
+                            <constraint firstItem="7O9-9U-XnC" firstAttribute="trailing" secondItem="umX-OW-GmA" secondAttribute="trailing" id="W3o-mt-HMm"/>
+                            <constraint firstItem="7O9-9U-XnC" firstAttribute="leading" secondItem="umX-OW-GmA" secondAttribute="leading" id="j4u-Y6-g5y"/>
+                            <constraint firstItem="7O9-9U-XnC" firstAttribute="top" secondItem="6JA-IC-Zir" secondAttribute="top" id="x7L-nu-FSy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="umX-OW-GmA"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="7O9-9U-XnC" id="1HO-AO-wBU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xnp-zP-Y3G" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1213.5999999999999" y="810.94452773613204"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Nwt-pJ-Ufi">
             <objects>
@@ -302,6 +332,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="6qu-bn-jNn"/>
+        <segue reference="m23-Vp-fUZ"/>
     </inferredMetricsTieBreakers>
 </document>
