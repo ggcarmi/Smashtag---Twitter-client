@@ -40,7 +40,6 @@ class TweetTableViewCell: UITableViewCell
             tweetTextToHighlight.addAttributes(name: NSForegroundColorAttributeName, value: UIColor.green, wordsToGetTheirRanges: tweet.userMentions)
         }
         tweetTextLabel?.attributedText = tweetTextToHighlight // tweet body
-//        tweetTextLabel?.text = tweet?.text // tweet body
 
         tweetUserLabel?.text = tweet?.user.description // tweet title-user
         

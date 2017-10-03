@@ -22,7 +22,6 @@ class MentionsTableViewController: UITableViewController {
                 sections = createSections(tweet: tweet)
                 tableView.reloadData()
             }
-
         }
     }
     
@@ -172,13 +171,6 @@ class MentionsTableViewController: UITableViewController {
             if let tweetTableViewController = segue.destination.contents as? TweetTableViewController, let senderCell = sender as? UITableViewCell {
             
                 if let newMentionKeyword = senderCell.textLabel?.text {
-                
-//                // create back button with corresponding title
-//                let backButton = UIBarButtonItem()
-//                backButton.title = newMentionKeyword
-//                tweetTableViewController.navigationItem.backBarButtonItem = backButton
-////                navigationItem.backBarButtonItem = backButton // This will show in the next view controller being pushed
-                
                     tweetTableViewController.searchText = newMentionKeyword
                 }
             }
@@ -187,34 +179,13 @@ class MentionsTableViewController: UITableViewController {
         else if identifier == Identifiers.showImageIdentifier {
             if let imageViewController = segue.destination.contents as? ImageViewController,
                 let senderCell = sender as? ImageTableViewCell {
-
-                        imageViewController.imageURL = senderCell.mediaItem?.url
-    
+                
+                    DispatchQueue.main.async {
+                        imageViewController.spinner.startAnimating()
+                    }
+                    imageViewController.imageURL = senderCell.mediaItem?.url
                 }
-            
         }
-//        else if identifier == Identifiers.showImageIdentifier {
-//            if let imageViewController = segue.destination.contents as? ImageViewController,
-//               let senderCell = sender as? UITableViewCell {
-//
-//                if let indexPath = tableView.indexPath(for: senderCell),
-//                sections[indexPath.section].mentionsType == "Images" {
-//
-//                    let imageMention = sections[indexPath.section].mentionsArray[indexPath.row]
-//
-//                    switch imageMention{
-//                    case .Image(let mediaItem):
-//                            imageViewController.imageURL = mediaItem.url
-////                            imageViewController.title =
-//
-//                    default:
-//                        break
-//                    }
-//
-//                }
-//            }
-//        }
-
         
     }
     
@@ -300,6 +271,7 @@ class MentionsTableViewController: UITableViewController {
         
         
         return sections
+        
     }
 }
 

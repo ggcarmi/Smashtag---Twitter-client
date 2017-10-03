@@ -13,6 +13,7 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
 
     private var tweets = [Array<Twitter.Tweet>]()
 
+
     // to search for specific hastags
     @IBOutlet weak var searchTextField: UITextField! {
         didSet{
@@ -31,6 +32,7 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
     // to reflect the result of fetching Tweets that match
     var searchText: String? {
         didSet {
+            Utils.storeTweetSearchInUserDefault(searchText: searchText)
             searchTextField?.text = searchText
             searchTextField?.resignFirstResponder() // when someone press search, hide the keyboard
             lastTwitterRequest = nil
@@ -195,6 +197,8 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
             }
         }
     }
+    
+
  
 
 }
@@ -210,3 +214,5 @@ extension UIViewController {
         }
     }
 }
+
+
