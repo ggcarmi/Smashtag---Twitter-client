@@ -16,15 +16,23 @@ class ImageTableViewCell: UITableViewCell {
     var mediaItem: MediaItem?  { didSet{ updateUI() } }
     
     func updateUI(){
+        
         // image
         if let imageURL = mediaItem?.url {
-            // FIXME: blocks main thread
-            if let imageData = try? Data(contentsOf: imageURL) {
-                imageViewOutlet?.image = UIImage(data: imageData)
+
+            DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+                let urlContents = try? Data(contentsOf: imageURL)
+                
+                if let imageData = urlContents, imageURL == self?.mediaItem?.url {
+                    DispatchQueue.main.async {
+                        self?.imageViewOutlet.image = UIImage(data: imageData)
+                    }
+                }
             }
         } else {
             imageViewOutlet?.image = nil
         }
+    
     }
     
     override func awakeFromNib() {

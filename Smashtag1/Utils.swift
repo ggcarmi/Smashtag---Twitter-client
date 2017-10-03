@@ -24,8 +24,7 @@ class Utils: NSObject {
                 storedSearches.insert(searchToStore.lowercased(), at: 0)
             }
         }
-        defaults.set(storedSearches, forKey: Utils.userDefaultRecentSearchesKey)
-        
+        defaults.set(storedSearches, forKey: Utils.userDefaultRecentSearchesKey)        
     }
-    
+
 }

@@ -45,9 +45,15 @@ class TweetTableViewCell: UITableViewCell
         
         // image
         if let profileImageURL = tweet?.user.profileImageURL {
-            // FIXME: blocks main thread
-            if let imageData = try? Data(contentsOf: profileImageURL) {
-                tweetProfileImageView?.image = UIImage(data: imageData)
+            
+            DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+                let urlContents = try? Data(contentsOf: profileImageURL)
+                
+                if let imageData = urlContents, profileImageURL == self?.tweet?.user.profileImageURL{
+                    DispatchQueue.main.async {
+                        self?.tweetProfileImageView?.image = UIImage(data: imageData)
+                    }
+                }
             }
         } else {
             tweetProfileImageView?.image = nil
